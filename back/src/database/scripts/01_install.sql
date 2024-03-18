@@ -1,14 +1,10 @@
-CREATE DATABASE adsum;
-USE adsum;
-
 CREATE TABLE `categories` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `categories` VALUES (1,'Facturación'),(2,'Soporte técnico'),(3,'Ventas'),(4,'Información general');
-
+INSERT INTO `categories` VALUES (1,'Facturacion'),(2,'Soporte tecnico'),(3,'Ventas'),(4,'Informacion general');
 
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,

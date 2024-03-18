@@ -23,7 +23,7 @@ RUN ng build
 FROM nginx:alpine
 
 # Copy the built app from the build stage to the NGINX directory
-COPY --from=build /usr/src/app/dist/quiz /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/quiz/browser /usr/share/nginx/html
 
 # Expose the port your app runs on (NGINX default is 80)
 EXPOSE 80

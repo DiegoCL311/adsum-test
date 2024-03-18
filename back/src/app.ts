@@ -13,12 +13,6 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Test database connection
-pool.getConnection().then((connection) => {
-  console.log("Database connected!");
-  connection.release();
-});
-
 //routes
 app.use("/users", userRoutes);
 
@@ -30,3 +24,14 @@ app.use(errorMiddleware);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// Test database connection
+pool
+  .getConnection()
+  .then((connection) => {
+    console.log("Database connected!");
+    connection.release();
+  })
+  .catch((error) => {
+    console.log("Database connection failed!", error);
+  });
