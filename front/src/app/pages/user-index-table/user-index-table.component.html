@@ -1,0 +1,64 @@
+<style>
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+
+  .user-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  .user-table tbody tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+
+  .title {
+    text-align: center;
+  }
+</style>
+
+<app-header-component title="Listado de usuarios"></app-header-component>
+<app-navbar-component></app-navbar-component>
+<div>
+  <div>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre completo</th>
+          <th>Nombre de la empresa</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Categoria</th>
+          <th>Mensaje</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users(); track user.id) {
+
+        <tr routerLink="/{{ user.id }}">
+          <td>{{ user.id }}</td>
+          <td>{{ user.fullname }}</td>
+          <td>{{ user.companyName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.categoryName }}</td>
+          <td>{{ user.message }}</td>
+        </tr>
+
+        }
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+</div>

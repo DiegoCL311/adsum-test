@@ -1,0 +1,118 @@
+<app-header-component title="Contacto de soporte !"></app-header-component>
+<app-navbar-component></app-navbar-component>
+<main
+  style="width: 80%; display: flexbox; margin-left: auto; margin-right: auto"
+>
+  <form [formGroup]="userForm" (ngSubmit)="onUpdate()">
+    <div style="width: auto">
+      <p style="font-size: large; margin-bottom: 1vh">Nombre completo*</p>
+      <input
+        type="text"
+        style="width: 100%; height: 4vh; margin-top: 0px"
+        formControlName="fullname"
+      />
+      @if (userForm.get('fullname')?.hasError('required') &&
+      userForm.get('fullname')?.touched) {
+      <div style="color: red">Requerido</div>
+      }
+
+      <p style="font-size: large; margin-bottom: 1vh">Nombre de la empresa*</p>
+      <input
+        type="text"
+        style="width: 100%; height: 4vh; margin-top: 0px"
+        formControlName="companyName"
+      />
+      @if (userForm.get('companyName')?.hasError('required') &&
+      userForm.get('companyName')?.touched) {
+      <div style="color: red">Requerido</div>
+      }
+
+      <p style="font-size: large; margin-bottom: 1vh">Correo electrónico*</p>
+      <input
+        type="text"
+        style="width: 100%; height: 4vh; margin-top: 0px"
+        formControlName="email"
+      />
+      @if (userForm.get('email')?.hasError('required') &&
+      userForm.get('email')?.touched) {
+      <div style="color: red">Requerido</div>
+      } @if (userForm.get('email')?.hasError('email') &&
+      userForm.get('email')?.touched) {
+      <div style="color: red">Correo inválido</div>
+      }
+
+      <div style="display: flex">
+        <div style="flex: 1; margin-right: 10px">
+          <p style="font-size: large; margin-bottom: 1vh">Teléfono*</p>
+          <input
+            type="text"
+            style="width: 100%; height: 4vh; margin-top: 0px"
+            formControlName="phone"
+          />
+          @if (userForm.get('phone')?.hasError('required') &&
+          userForm.get('phone')?.touched) {
+          <div style="color: red">Requerido</div>
+          }
+        </div>
+        <div style="flex: 1; margin-left: 10px">
+          <p style="font-size: large; margin-bottom: 1vh">Categoría*</p>
+          <select
+            style="width: 100%; height: 5vh; margin-top: 0px"
+            formControlName="categoryId"
+          >
+            @for (category of categories; track $index) {
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            }
+          </select>
+          @if (userForm.get('categoryId')?.hasError('required') &&
+          userForm.get('categoryId')?.touched) {
+          <div style="color: red">Requerido</div>
+          }
+        </div>
+      </div>
+
+      <p style="font-size: large; margin-bottom: 1vh">Mensaje*</p>
+      <input
+        type="text"
+        style="width: 100%; height: 6vh; margin-top: 0px"
+        placeholder="Escriba su mensaje"
+        formControlName="message"
+      />
+      @if (userForm.get('message')?.hasError('required') &&
+      userForm.get('message')?.touched) {
+      <div style="color: red">Requerido</div>
+      }
+
+      <button
+        style="
+          background-color: #a1d35c;
+          margin-top: 2vh;
+          border-radius: 5px;
+          height: 4vh;
+          color: white;
+          padding-inline: 3vh;
+          border-color: transparent;
+          cursor: pointer;
+        "
+        type="submit"
+      >
+        Actualizar
+      </button>
+    </div>
+  </form>
+  <button
+    style="
+      background-color: red;
+      margin-top: 2vh;
+      border-radius: 5px;
+      height: 4vh;
+      color: white;
+      padding-inline: 3vh;
+      border-color: transparent;
+      cursor: pointer;
+    "
+    (click)="onDelete()"
+  >
+    Eliminar
+  </button>
+</main>

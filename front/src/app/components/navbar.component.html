@@ -1,0 +1,42 @@
+<head>
+  <style>
+    .navbar {
+      width: 100%;
+      height: fit-content;
+      text-align: center;
+      background-color: lightblue;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      border: none;
+      color: rgb(38, 37, 37);
+      font-weight: bold;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 0px 4px;
+    }
+
+    .navbar li:hover {
+      background-color: #94b9c6;
+    }
+  </style>
+</head>
+
+<div class="navbar">
+  <ul>
+    <li routerLink="/all">Ver todos</li>
+    <li routerLink="/">Agregar nuevo</li>
+  </ul>
+</div>
